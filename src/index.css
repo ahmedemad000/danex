@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+body{
+  zoom: 80%;
+}
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes text-reveal {
+  0% { transform: translate(0, 100%); }
+  100% { transform: translate(0, 0); }
+}
+
+@utility glass-card {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+@utility gradient-bg {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #fafafa 100%);
+}
+
+@utility text-gradient {
+  background: linear-gradient(to right, #0284c7, #075985);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth scrolling */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Base styles */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom animation classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+.animate-text-reveal {
+  animation: text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+
+
+
+/* services hardware validation */
+@keyframes float-slow {
+  0%, 100% { transform: translateX(-100px); }
+  50% { transform: translateX(100px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 20s linear infinite;
+}
