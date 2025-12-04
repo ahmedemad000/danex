@@ -121,15 +121,15 @@ const Contact = () => {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
       description: "Our team will respond within 24 hours",
-      contact: "contact@danex.tech",
-      action: "mailto:contact@danex.tech"
+      contact: "Khaled@danextech.com",
+      action: "mailto:Khaled@danextech.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
       description: "Speak directly with our experts",
-      contact: "+971 4 123 4567",
-      action: "tel:+97141234567"
+      contact: "+90 552 6220200",
+      action: "tel:+90 552 6220200"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -481,9 +481,7 @@ const Contact = () => {
                 <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-white">
                   <div className="text-center mb-8">
                     <Calendar className="w-12 h-12 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold mb-4">
-                      Free 15-Day Consultation
-                    </h3>
+                    
                     <p className="text-blue-100">
                       Experience our expertise with a complimentary consultation period. 
                       No commitment required.

@@ -23,12 +23,7 @@ const floatingAnimation = `
 `
 
 const HeroSection = () => {
-  const stats = [
-    { value: "99.9%", label: "Uptime Reliability" },
-    { value: "50+", label: "Enterprise Clients" },
-    { value: "24/7", label: "Global Support" },
-    { value: "ISO 9001", label: "Certified Quality" }
-  ]
+  
 
   return (
     <section className="min-h-screen relative bg-gradient-to-br from-white via-blue-50 to-indigo-100 overflow-hidden pt-20">
@@ -56,7 +51,7 @@ const HeroSection = () => {
         <div className="absolute -bottom-32 -right-32 w-64 h-64 md:-bottom-48 md:-right-48 md:w-96 md:h-96 bg-gradient-to-r from-cyan-100 to-emerald-100 rounded-full blur-3xl opacity-30 md:opacity-50"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 min-h-screen flex items-center py-12 md:py-0">
+      <div className="relative container mx-auto px-4 sm:px-6 min-h-screen flex items-center py-12 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center w-full">
           {/* Left Content */}
           <motion.div
@@ -84,7 +79,7 @@ const HeroSection = () => {
 
             {/* Main Heading */}
             <div className="space-y-4 md:space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl  md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
                 Build The Future
                 <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent mt-2">
                   With Intelligence
@@ -116,30 +111,10 @@ const HeroSection = () => {
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
-              <button className="group bg-white border border-gray-300 text-gray-700 px-6 py-3 md:px-8 md:py-4 rounded-lg md:rounded-xl font-semibold text-base md:text-lg transition-all duration-300 hover:border-blue-500 hover:text-blue-600 hover:shadow-xl hover:scale-105 inline-flex items-center justify-center gap-2 md:gap-3">
-                <Play className="w-4 h-4 md:w-5 md:h-5" />
-                <span>Watch Demo</span>
-              </button>
+            
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-6 md:pt-8 border-t border-gray-200"
-            >
-              {stats.map((stat, index) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs md:text-sm text-gray-600 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
+            
           </motion.div>
 
           {/* Right Content - Image Showcase */}
@@ -232,19 +207,7 @@ const HeroSection = () => {
                 </motion.div>
               </div>
 
-              {/* Stats Row */}
-              <div className="flex justify-between items-center mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200">
-                {[
-                  { value: '50+', label: 'Clients' },
-                  { value: '99.9%', label: 'Uptime' },
-                  { value: '24/7', label: 'Support' }
-                ].map((stat, index) => (
-                  <div key={index} className="text-center px-1">
-                    <div className="text-base sm:text-lg font-bold text-gray-900">{stat.value}</div>
-                    <div className="text-xs text-gray-600">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
+             
             </div>
 
             {/* Floating Elements */}
@@ -649,24 +612,7 @@ const CompanyStory = () => {
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-400 mb-2">20+</div>
-                  <div className="text-sm text-gray-400">Expert Engineers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-400 mb-2">100%</div>
-                  <div className="text-sm text-gray-400">Remote Team</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-400 mb-2">50+</div>
-                  <div className="text-sm text-gray-400">Projects Delivered</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-400 mb-2">24/7</div>
-                  <div className="text-sm text-gray-400">Global Support</div>
-                </div>
-              </div>
+             
             </motion.div>
 
             <motion.div

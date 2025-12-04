@@ -1,87 +1,99 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Linkedin, Twitter, Github } from 'lucide-react'
+import { Linkedin, Twitter, Github, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
+    <footer className="bg-gradient-to-b from-slate-50 to-white border-t border-gray-200/50">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="md:col-span-2"
-          >
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary-600 to-primary-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">D</span>
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold">D</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">Danex Technologies</span>
-            </Link>
-            <p className="text-gray-600 mb-4 max-w-md">
-              Dubai's premier technology partner delivering AI-powered applications and mission-critical hardware validation for global enterprises.
+              <span className="text-xl font-bold text-slate-900">Danex</span>
+            </div>
+            <p className="text-gray-600 text-sm mb-4">
+              Enterprise technology solutions for the modern business.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="p-2 text-gray-400 hover:text-primary-600 transition-colors duration-300">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="p-2 text-gray-400 hover:text-primary-600 transition-colors duration-300">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="p-2 text-gray-400 hover:text-primary-600 transition-colors duration-300">
-                <Github size={20} />
-              </a>
+            <div className="flex gap-3">
+              {[Linkedin, Twitter, Github].map((Icon, i) => (
+                <a key={i} href="#" className="p-2 text-gray-400 hover:text-blue-600 transition-colors">
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h3 className="font-semibold text-gray-900 mb-4">Quick Links</h3>
+          {/* Links */}
+          <div>
+            <h3 className="font-semibold text-slate-900 mb-4">Solutions</h3>
             <div className="space-y-2">
-              <Link to="/services" className="block text-gray-600 hover:text-primary-600 transition-colors duration-300">
-                Services
-              </Link>
-              <Link to="/about" className="block text-gray-600 hover:text-primary-600 transition-colors duration-300">
-                About Us
-              </Link>
-              <Link to="/contact" className="block text-gray-600 hover:text-primary-600 transition-colors duration-300">
-                Contact
-              </Link>
+              {['AI Applications', 'Hardware Validation', 'Cloud Engineering', 'Digital Transformation'].map((link) => (
+                <Link 
+                  key={link} 
+                  to="/services"
+                  className="block text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                >
+                  {link}
+                </Link>
+              ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="font-semibold text-gray-900 mb-4">Contact</h3>
-            <div className="space-y-2 text-gray-600">
-              <p>Dubai, UAE</p>
-              <p>info@danextechnologies.com</p>
-              <p>+971 4 123 4567</p>
+          <div>
+            <h3 className="font-semibold text-slate-900 mb-4">Company</h3>
+            <div className="space-y-2">
+              {['About', 'Services', 'Contact'].map((link) => (
+                <Link 
+                  key={link} 
+                  to={`/${link.toLowerCase()}`}
+                  className="block text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                >
+                  {link}
+                </Link>
+              ))}
             </div>
-          </motion.div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="font-semibold text-slate-900 mb-4">Contact</h3>
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-gray-600 text-sm">
+                <MapPin size={14} />
+                Dubai, UAE
+              </div>
+              <div className="flex items-center gap-2 text-gray-600 text-sm">
+                <Mail size={14} />
+                Khaled@danextech.com
+              </div>
+              <div className="flex items-center gap-2 text-gray-600 text-sm">
+                <Phone size={14} />
+                +90 552 6220200
+              </div>
+            </div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500"
-        >
+        {/* Bottom */}
+        <div className="pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
           <p>&copy; {currentYear} Danex Technologies. All rights reserved.</p>
-        </motion.div>
+          <div className="flex justify-center gap-4 mt-2">
+            <Link to="/privacy" className="hover:text-blue-600 transition-colors">
+              Privacy
+            </Link>
+            <Link to="/terms" className="hover:text-blue-600 transition-colors">
+              Terms
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   )

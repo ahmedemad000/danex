@@ -171,7 +171,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-gray-700 hover:text-primary-600 transition-colors duration-300 relative"
+              className="lg:hidden p-2 text-gray-700 hover:text-primary-600 transition-colors duration-300 relative cursor-pointer"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
               {!isOpen && (
