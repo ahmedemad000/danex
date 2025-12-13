@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Linkedin, Twitter, Github, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
+import Logo from './Logo' // Add this import
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -11,33 +12,36 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-12">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
+          {/* Brand - Footer optimized logo */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold">D</span>
-              </div>
-              <span className="text-xl font-bold text-slate-900">Danex</span>
-            </div>
+            <Logo
+              variant="footer"  // Smaller for footer
+              animate={false}
+              isLink={true}
+              className="mb-4"
+            />
             <p className="text-gray-600 text-sm mb-4">
               Enterprise technology solutions for the modern business.
             </p>
             <div className="flex gap-3">
               {[Linkedin, Twitter, Github].map((Icon, i) => (
-                <a key={i} href="#" className="p-2 text-gray-400 hover:text-blue-600 transition-colors">
+                <a
+                  key={i}
+                  href="#"
+                  className="p-2 bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-600 rounded-lg transition-all duration-300"
+                >
                   <Icon size={18} />
                 </a>
               ))}
             </div>
           </div>
-
           {/* Links */}
           <div>
             <h3 className="font-semibold text-slate-900 mb-4">Solutions</h3>
             <div className="space-y-2">
               {['AI Applications', 'Hardware Validation', 'Cloud Engineering', 'Digital Transformation'].map((link) => (
-                <Link 
-                  key={link} 
+                <Link
+                  key={link}
                   to="/services"
                   className="block text-gray-600 hover:text-blue-600 text-sm transition-colors"
                 >
@@ -51,8 +55,8 @@ const Footer = () => {
             <h3 className="font-semibold text-slate-900 mb-4">Company</h3>
             <div className="space-y-2">
               {['About', 'Services', 'Contact'].map((link) => (
-                <Link 
-                  key={link} 
+                <Link
+                  key={link}
                   to={`/${link.toLowerCase()}`}
                   className="block text-gray-600 hover:text-blue-600 text-sm transition-colors"
                 >

@@ -163,7 +163,7 @@ const Services = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-26">
       {/* Hero Section with Parallax */}
       <motion.section
         style={{ opacity, scale }}

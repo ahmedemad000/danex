@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sparkles } from 'lucide-react'
+import Logo from './Logo' // Add this import
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,10 +19,7 @@ const Navbar = () => {
   }, [])
 
   const handleNavClick = () => {
-    // Close mobile menu if open
     setIsOpen(false)
-    
-    // Scroll to top will be handled by the ScrollToTopOnNavigate component
   }
 
   const navItems = [
@@ -58,37 +56,28 @@ const Navbar = () => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'glass-card py-3 shadow-2xl shadow-primary-500/10' 
-            : 'bg-transparent py-6'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+          ? 'glass-card py-4 shadow-2xl shadow-primary-500/10'
+          : 'bg-transparent py-7'
+          }`}
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+
+            {/* Logo - With vertical centering wrapper */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="flex items-center space-x-3"
+              className="flex-shrink-0 flex items-center"  // Added flex items-center
             >
-              <Link to="/" onClick={handleNavClick} className="flex items-center space-x-3">
-                <div className="relative">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/25">
-                    <Sparkles className="text-white" size={20} />
-                  </div>
-                  <div className="absolute -inset-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                    Danex
-                  </span>
-                  <span className="text-xs text-gray-500 font-medium -mt-1">
-                    Technologies
-                  </span>
-                </div>
-              </Link>
+              <Logo
+                variant="navbar"
+                animate={true}
+                isLink={true}
+                onClick={handleNavClick}
+                className="hover:scale-[1.02] transition-transform duration-200"
+              />
             </motion.div>
 
             {/* Desktop Navigation - Centered */}
@@ -98,7 +87,7 @@ const Navbar = () => {
               animate="visible"
               className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2"
             >
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <motion.div
                   key={item.name}
                   variants={itemVariants}
@@ -109,14 +98,13 @@ const Navbar = () => {
                   <Link
                     to={item.path}
                     onClick={handleNavClick}
-                    className={`relative px-4 py-2 font-medium transition-all duration-300 group ${
-                      location.pathname === item.path
-                        ? 'text-primary-600'
-                        : 'text-gray-700 hover:text-primary-600'
-                    }`}
+                    className={`relative px-4 py-2 font-medium transition-all duration-300 group ${location.pathname === item.path
+                      ? 'text-primary-600'
+                      : 'text-gray-700 hover:text-primary-600'
+                      }`}
                   >
                     <span className="relative z-10">{item.name}</span>
-                    
+
                     {/* Animated underline */}
                     {location.pathname === item.path && (
                       <motion.div
@@ -128,9 +116,8 @@ const Navbar = () => {
 
                     {/* Hover effect */}
                     <motion.div
-                      className={`absolute inset-0 bg-gradient-to-r from-primary-500/10 to-primary-600/10 rounded-lg ${
-                        hoveredLink === item.path ? 'opacity-100' : 'opacity-0'
-                      }`}
+                      className={`absolute inset-0 bg-gradient-to-r from-primary-500/10 to-primary-600/10 rounded-lg ${hoveredLink === item.path ? 'opacity-100' : 'opacity-0'
+                        }`}
                       transition={{ duration: 0.2 }}
                     />
                   </Link>
@@ -159,7 +146,7 @@ const Navbar = () => {
                   <div className="absolute inset-0 bg-white rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                   <Sparkles className="relative z-10" size={16} />
                 </motion.div>
-                
+
                 {/* Shine effect */}
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
               </Link>
@@ -220,7 +207,7 @@ const Navbar = () => {
                   animate="visible"
                   className="flex flex-col space-y-6 flex-1"
                 >
-                  {navItems.map((item, index) => (
+                  {navItems.map((item) => (
                     <motion.div
                       key={item.name}
                       variants={itemVariants}
@@ -229,11 +216,10 @@ const Navbar = () => {
                       <Link
                         to={item.path}
                         onClick={handleNavClick}
-                        className={`block text-2xl font-semibold py-3 px-4 rounded-xl transition-all duration-300 ${
-                          location.pathname === item.path
-                            ? 'text-primary-600 bg-primary-50'
-                            : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
-                        }`}
+                        className={`block text-2xl font-semibold py-3 px-4 rounded-xl transition-all duration-300 ${location.pathname === item.path
+                          ? 'text-primary-600 bg-primary-50'
+                          : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                          }`}
                       >
                         {item.name}
                         {location.pathname === item.path && (

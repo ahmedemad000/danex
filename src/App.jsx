@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import Services from './pages/Services'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Component to handle scroll to top on route change
 const ScrollToTopOnNavigate = () => {
@@ -128,22 +129,25 @@ function App() {
   }, [isLoading])
 
   return (
-    <Router>
-      {/* Loading Screen */}
-      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-      
-      {/* Main App Content */}
-      <div className={`min-h-screen bg-white transition-opacity duration-1000 ${
-        isLoading ? 'opacity-0' : 'opacity-100'
-      }`}>
-        <Navbar />
-        <main className="relative">
-          <AnimatedRoutes />
-        </main>
-        <Footer />
-        <ScrollToTop />
-      </div>
-    </Router>
+    <ErrorBoundary>
+
+      <Router>
+        {/* Loading Screen */}
+        {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+
+        {/* Main App Content */}
+        <div className={`min-h-screen bg-white transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'
+          }`}>
+          <Navbar />
+          <main className="relative">
+            <AnimatedRoutes />
+          </main>
+          <Footer />
+          <ScrollToTop />
+        </div>
+      </Router>
+    </ErrorBoundary>
+
   )
 }
 
